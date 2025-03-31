@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "psychic-nuance-454814-a1",
+  "private_key_id": "32bd46e14ef43dd324ad9d0ab85231d917912bb6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCRS4Ge6DiYKoDh\nXCykBaxlDRi5wAQiFPOLIj6tsBQw+yBuVP571aCQMefC0fnqtdFGz4Y3xizIiD2O\niQkrIFbzkFLyVuS46mHQ40U0Anf8DRKrniHKaLzh8cMcRTP1GpRzBniEGWk9NYyh\n+d6QqX+Vs0FJ0+5t0mDwNgfFzwy0T0fdE7yODwpUaN3SOtIjJ7W7RZRAK8k63l+4\nuL+sE4yL6+Glw7LUqXZjzl/xar6Mljcw+rTDkuossG3oGu1dfvxG5OKM3buigyeq\ndr+Gt8t1/J0G91QrPtzAlyymS8ybJ8l3h8/Ed1GJzI80OdecmzFX7I3HTuaWmQFq\nsF+KyDRvAgMBAAECggEAEbuL5deEtLmXQinsPtZ8bFbVWjI/ruMsuCHlUXBofnPf\nyOdxqa5warjUhtf2rvkiwggo4ty6cX0DOkaqSkunoRFPtkj5oEHmz0Y1l3vnpej4\nit6BVEFFMDQ/8k7V4Qet733uLn0ldXV4JPqoebJeImiewsJtWpTvBNIrT66N5+GI\nDCo4kSAKp5ORMt/A64oUNM72Q1skGPA8eyZVpR3fTlf7ZfjU/OYM7AK7qbQ8EUMZ\nOyo9QC/0YdQfMQ0qb3aoHPmVDacIDNHDABebyH8jDDuoTJ4qMmJim+zNDYWLUcRO\n8Tl6ZeXwIDuuardfrzvnhpvbO2dDejoWdJszMd7cdQKBgQDKOWjdDjNSVWe5tqZy\n6ygLgw6yCArrCKVXOJAguWp0f8zY93dSZtaiDXZ2gSAGYMpVmKEl+eksiyR/UnJ/\n/ndvCdEt+2Iefz+xZaNAU72nVd/WMpy8RNvPErhmv1q3jCYoDg/QUEbtrIWKlTpM\nLpBNkJPQq//nRm25HJi1awAlIwKBgQC37pW93bZf8Z5s/L5KV2mhAWYTAJGsskSj\nUTpPjv5HxwLUMUaJb/Niok4AHe1+RbdJHC75+mrpJm92RLw9Ry6c0kAtQWKYOsco\nDQUslpktcX9CE2gnYZt/CNWKP6SsSwN207L/O9kDUBK3J2HrE4rv/RKN/Et/GPDN\nOEJmIAkmRQKBgQCqxOY/3lEKkyKfmpVe8CQF7KuJPe9yYP+28wYLDGjQbmffRMLX\nrA5OFM5X7lzL5gqXU+epuSvmOK4ectJMMehLtV+W0/UcydpQhQLiPJUobQUzzdO7\nzO5OJIHiCm+iFlDWfGFwSYpMBOdUiwYK9TtYtOGOUuEsPbZEnth6QxyBPwKBgHiO\nvT9xrzQ73qd5EhEQMoABtrIF0XXscujJOPsksq7BVq1WjvFOm6yuzYluFFiLwZL+\nEhxvctvXAX/3lZpkqbzIYqBHFyTIgflSb23GWChdGBhrN/14EL+3PqAbDwiPMnoU\nUGLTC28McPfzrE60xICA1ESUdbec1Vjt4zelD9oxAoGBALLgLik2dxynL6c+RLrx\nvTSmgr+jiiOydTt06cmV/Vp4sQJ/0U8xQNTHQNU7qeWhOzSPtI4RImTR5LPDtK7B\n36myfqA4LSZi5W7HUKjNG/c5bP6FMMiFP4KU4j+9GGkNed5XlIgOrpl84l8uGQrK\n6DmvQhs2QVK4OLdXjEBQ8AgQ\n-----END PRIVATE KEY-----\n",
+  "client_email": "admin-139@psychic-nuance-454814-a1.iam.gserviceaccount.com",
+  "client_id": "109251324137382438329",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/admin-139%40psychic-nuance-454814-a1.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
