@@ -15,6 +15,10 @@ class Settings(BaseSettings):
     secret: str = 'default_secret'
     first_superuser_email: Optional[EmailStr] = None
     first_superuser_password: Optional[str] = None
+    email: Optional[EmailStr] = None
+    auth_info_filename: Optional[str] = None
+    drive_url: Optional[str] = None
+    spreadsheets_url: Optional[str] = None
 
     class Config:
         env_file = '.env'
