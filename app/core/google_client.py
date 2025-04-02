@@ -1,8 +1,14 @@
 from aiogoogle import Aiogoogle
 from aiogoogle.auth.creds import ServiceAccountCreds
+from aiogoogle.excs import AiogoogleError
+from fastapi import status
+from fastapi.exceptions import HTTPException
 
 from app.core.config import settings
 
+
+UNSUCCESFUL_GOOGLE_API = (
+    'Операция не выполнена: ошибка при работе с API GoogleCloud.')
 
 SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',
@@ -26,4 +32,10 @@ cred = ServiceAccountCreds(scopes=SCOPES, **INFO)
 
 async def get_service():
     async with Aiogoogle(service_account_creds=cred) as aiogoogle:
-        yield aiogoogle
+        try:
+            yield aiogoogle
+        except AiogoogleError:
+            raise HTTPException(
+                status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=UNSUCCESFUL_GOOGLE_API
+            )
