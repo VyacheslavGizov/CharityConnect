@@ -32,4 +32,5 @@ class CRUDCharityProject(CRUDBase):
                         extract('epoch', CharityProject.create_date)))
         ).scalars().all()
 
+
 charity_project_crud = CRUDCharityProject(CharityProject)
