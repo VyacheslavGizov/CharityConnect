@@ -9,7 +9,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.models import User
 
 
-NOT_FOUND_MESSAGE = '"{object_name}" c id={object_id} не найден!'
+NOT_FOUND_MESSAGE = '\'{object_name}\' c id={object_id} не найден!'
 
 
 class CRUDBase:

@@ -24,7 +24,7 @@ https://github.com/VyacheslavGizov/QRkot_spreadsheets.git
 ```
 2. В корневой директории создать и активировать виртуальное окружение, установить зависимости:
 ```
-cd cat_charity_fund/
+cd QRkot_spreadsheets/
 python -m venv venv
 source venv/Scripts/activate
 pip install -r requirements.txt

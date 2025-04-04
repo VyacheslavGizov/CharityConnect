@@ -8,7 +8,6 @@ from app.core.user import current_superuser
 from app.crud.charityproject import charity_project_crud
 from app.services.google_api import (
     create_report_table,
-    REPORT_LINK,
     set_user_permissions,
     spreadsheets_create,
     spreadsheets_update_value,
@@ -30,10 +29,11 @@ async def get_report(
 
     table = create_report_table(
         await charity_project_crud.get_projects_by_comletion_rate(session))
-    spreadsheet_id = await spreadsheets_create(
+    spreadsheet_id, report_link = await spreadsheets_create(
         wrapper_services,
         rows_number=len(table),
-        columns_number=max(map(len, table)))
+        columns_number=max(map(len, table))
+    )
     await set_user_permissions(spreadsheet_id, wrapper_services)
     await spreadsheets_update_value(spreadsheet_id, table, wrapper_services)
-    return {'report_link': REPORT_LINK.format(spreadsheet_id=spreadsheet_id)}
+    return {'report_link': report_link}

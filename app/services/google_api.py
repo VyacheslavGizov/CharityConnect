@@ -15,7 +15,11 @@ REPORT_TABLE_HEADER = [
     ['Топ проектов по скорости закрытия'],
     ['Название проекта', 'Время сбора', 'Описание']
 ]
-REPORT_LINK = 'https://docs.google.com/spreadsheets/d/{spreadsheet_id}'
+
+MAX_ROWS = 10_000_000
+MAX_COLUMNS = 18_278
+WRONG_TABLE_SIZE = ('Превышены допустимые размеры таблицы: '
+                    f'{MAX_ROWS} строк, {MAX_COLUMNS} столбцов.')
 
 
 def create_report_table(projects: list[CharityProject]):
@@ -37,13 +41,15 @@ def create_report_table(projects: list[CharityProject]):
 
 async def spreadsheets_create(
         wrapper_services: Aiogoogle,
-        rows_number: int = 100,
-        columns_number: int = 100,
-) -> str:
+        rows_number: int,
+        columns_number: int,
+):  # аннотация
+    if rows_number > MAX_ROWS or columns_number > MAX_COLUMNS:
+        raise ValueError(WRONG_TABLE_SIZE)
     service = await wrapper_services.discover('sheets', 'v4')
     spreadsheet_body = {
         'properties': {
-            'title': SPREADSHEET_TITLE,
+            'title': SPREADSHEET_TITLE,  # Должна быть дата составления отчета
             'locale': LOCALE
         },
         'sheets': [{
@@ -58,10 +64,9 @@ async def spreadsheets_create(
             }
         }]
     }
-    return (
-        await wrapper_services.as_service_account(
-            service.spreadsheets.create(json=spreadsheet_body))
-    )['spreadsheetId']
+    response = (await wrapper_services.as_service_account(
+        service.spreadsheets.create(json=spreadsheet_body)))
+    return response['spreadsheetId'], response['spreadsheetUrl']
 
 
 async def set_user_permissions(
