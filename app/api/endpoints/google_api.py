@@ -29,11 +29,11 @@ async def get_report(
 
     table = create_report_table(
         await charity_project_crud.get_projects_by_comletion_rate(session))
+    rows_number = len(table)
+    columns_number = max(map(len, table))
     spreadsheet_id, report_link = await spreadsheets_create(
-        wrapper_services,
-        rows_number=len(table),
-        columns_number=max(map(len, table))
-    )
+        wrapper_services, rows_number, columns_number)
     await set_user_permissions(spreadsheet_id, wrapper_services)
-    await spreadsheets_update_value(spreadsheet_id, table, wrapper_services)
+    await spreadsheets_update_value(
+        spreadsheet_id, table, wrapper_services, rows_number, columns_number)
     return {'report_link': report_link}
