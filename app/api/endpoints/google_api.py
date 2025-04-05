@@ -1,5 +1,7 @@
 from aiogoogle import Aiogoogle
 from fastapi import APIRouter, Depends
+from fastapi import status
+from fastapi.exceptions import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.db import get_async_session
@@ -31,9 +33,17 @@ async def get_report(
         await charity_project_crud.get_projects_by_comletion_rate(session))
     rows_number = len(table)
     columns_number = max(map(len, table))
-    spreadsheet_id, report_link = await spreadsheets_create(
-        wrapper_services, rows_number, columns_number)
+    try:
+        spreadsheet_id, report_link = await spreadsheets_create(
+            wrapper_services, rows_number, columns_number)
+    except ValueError as error:
+        raise HTTPException(
+            status.HTTP_500_INTERNAL_SERVER_ERROR, detail=str(error))
     await set_user_permissions(spreadsheet_id, wrapper_services)
     await spreadsheets_update_value(
-        spreadsheet_id, table, wrapper_services, rows_number, columns_number)
+        spreadsheet_id,
+        table,
+        wrapper_services,
+        update_range=f'R1C1:R{rows_number}C{columns_number}'
+    )
     return {'report_link': report_link}
